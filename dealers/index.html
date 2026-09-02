@@ -1,0 +1,307 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=960">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Pharmacom Labs">
+    <meta property="og:site_name" content="Pharmacom Labs">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://pharmacomoficial.com/images/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://pharmacomoficial.com/images/logo.png">    <title>Pharmacom Labs - Revendedores</title>
+    <link rel="stylesheet" id="css-styles" href="css/general.css" type="text/css" media="all">
+    <link rel="stylesheet" id="css-lightbox" href="css/lightbox.css" type="text/css" media="all">
+
+    <script async src="js/analytics.js"></script>
+    <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+    <script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="js/lightbox-2.6.min.js"></script>
+    <script type="text/javascript" src="js/scripts.js"></script>
+    <style>
+        #content-main.homepage .news-block {
+            height: 194px;
+        }
+    </style>
+    <meta name="description" content="Lista completa de revendedores e distribuidores oficiais da Pharmacom Labs. Compre apenas de parceiros autorizados e garanta a autenticidade do seu produto original.">
+    <meta property="og:title" content="Revendedores Oficiais - Pharmacom Labs">
+    <meta property="og:description" content="Lista completa de revendedores oficiais da Pharmacom Labs. Compre com segurança de distribuidores autorizados.">
+    <meta property="og:url" content="https://pharmacomoficial.com/dealers">
+    <meta name="twitter:title" content="Revendedores Oficiais - Pharmacom Labs">
+    <meta name="twitter:description" content="Lista completa de revendedores oficiais da Pharmacom Labs.">
+    <link rel="canonical" href="https://pharmacomoficial.com/dealers">
+</head>
+
+<body>
+
+        <div id="wrapper">
+            <header id="header-main" >
+                <a href="/" id="logo"><img src="images/logo.png" alt="Pharmacom Labs"></a>
+            </header>
+            <style>
+                #nav-main>ul>li>a {
+                    padding: 0 14px;
+                }
+            </style>
+            <div id="nav-main">
+                <ul>
+                    <li class="home "><a href="/"> </a></li>
+                    <li class="about "><a href="/story">Sobre Nós</a></li>
+                    <li class="news "><a href="/news">Notícias</a></li>
+                    <li class="innovations "><a href="/innovations">Inovações</a></li>
+                    <li class="products "><a href="/product">Produtos</a></li>
+                    <li class="dealers "><a href="/code">Verificar código</a></li>
+                    <li class="dealers active"><a href="/dealers">Revendedores</a></li>
+                    <li class="dealers "><a href="/site/analysis">Análise</a></li>
+                    <!-- li style="background:#C22323;" class="dealers"><a style="color:#fff;" href="https://www.basicstero.ws/" target="_blank" rel="noopener noreferrer">Purchase</a></li -->
+                    <li class="contact "><a href="/contacts">Contato</a></li>
+                </ul>
+
+                <!--<div id="search">
+            <input type="text" class="search-input" placeholder="Search...">
+            <input type="submit" value="Search" class="submit" />
+        </div>-->
+            </div>
+            <section id="content-main" class="homepage">
+
+                <div class="side-left w745 pull-left page page-contact">
+                    <header>
+                        Revendedores
+                    </header>
+
+                    <div class="page-content">
+                        <p>Bem-vindo à área de revendedores da Pharmacom. Se você tem interesse em iniciar negócios
+                            com o nosso laboratório, existem duas formas: você pode começar uma parceria com nossos
+                            revendedores ou pode se tornar um revendedor! Temos grande interesse em novos revendedores
+                            em todo o mundo!</p>
+                        <p>Prezados clientes da Pharmacom Labs,</p>
+                        <p>aqui você pode descobrir se o site do seu revendedor é oficial ou não. Por favor,
+                            insira abaixo o endereço do site que deseja verificar:</p>
+
+                        <form id="dealers-form" onsubmit="verificarRevendedor(event)">
+                            <p>
+                                <input id="dealers-field" class="text-field long" autocomplete="off" type="text"
+                                    name="query" placeholder="Ex: https://www.site.com.br" maxlength="200">
+                            </p>
+                            <p> </p>
+                            <p class="button">
+                                <input class="contacts-submit" type="submit" name="yt0" value="Verificar">
+                            </p>
+                        </form>
+
+                        <div id="resultado-dealer" style="display:none; margin-top:20px; margin-bottom:10px; padding:14px 18px; border-radius:6px; font-size:14px; font-weight:bold; text-align:center; box-sizing:border-box; width:100%; max-width:100%; line-height:1.5;"></div>
+
+                        <script>
+                        function verificarRevendedor(event) {
+                            event.preventDefault();
+                            var input = document.getElementById('dealers-field').value.trim().toLowerCase();
+
+                            var resultado = document.getElementById('resultado-dealer');
+                            resultado.style.display = 'block';
+
+                            if (!input) {
+                                resultado.style.color = '#f0a500';
+                                resultado.style.backgroundColor = '#fff8e1';
+                                resultado.style.border = '2px solid #f0a500';
+                                resultado.innerHTML = 'Por favor, insira o endereço do site.';
+                                return;
+                            }
+
+                            // Normaliza: remove protocolo, www e barra final
+                            var url = input.replace(/^https?:\/\//i, '').replace(/^www\./i, '').replace(/\/+$/, '');
+
+                            var autorizados = ['pharmacomoficial.com', 'pharmacomlabs.com.br'];
+                            var isOficial = autorizados.some(function(domain) {
+                                return url === domain || url.startsWith(domain + '/');
+                            });
+
+                            if (isOficial) {
+                                resultado.style.color = '#27ae60';
+                                resultado.style.backgroundColor = '#eafaf1';
+                                resultado.style.border = '2px solid #27ae60';
+                                resultado.innerHTML = '✅ Revendedor OFICIAL! Este site está autorizado pela Pharmacom Labs.';
+                            } else {
+                                resultado.style.color = '#c0392b';
+                                resultado.style.backgroundColor = '#fdecea';
+                                resultado.style.border = '2px solid #c0392b';
+                                resultado.innerHTML = '❌ Site NÃO autorizado. Este endereço não é um revendedor oficial da Pharmacom Labs. Entre em contato conosco antes de realizar qualquer compra.';
+                            }
+                        }
+                        </script>
+
+                    </div>
+                </div>
+
+                <div class="side-right w210 pull-right ">
+                    <a href="/product/38"><img src="images/banner_mixer.png" alt="Dianabolos 10"></a>
+                </div>
+                <div class="cf"></div>
+            </section>
+
+            <section id="partners">
+                <!-- <img src="/images/last/partners.png" alt="our partners" /> -->
+
+                <ul>
+                    <li class="partner"><img src="images/partner1.png" alt="Parceiro oficial 1"></li>
+                    <li class="partner"><img src="images/partner2.png" alt="Parceiro oficial 2"></li>
+                    <li class="partner"><img src="images/partner3.png" alt="Parceiro oficial 3"></li>
+                    <li class="partner"><img src="images/partner4.png" alt="Parceiro oficial 4"></li>
+
+                    <li class="partner"><img src="images/partner5.png"
+                                alt="Eroids - Avaliações Basicstero"></li>
+                    <li class="partner"><img src="images/partner6.png" alt="Parceiro oficial 6"></li>
+                    <li class="partner last" style="margin-right:0;"><img src="images/partner7.png"
+                                alt="Parceiro oficial 7"></li>
+                    <li class="partner" ><img
+                                src="images/anaboliclab.jpg" alt="Anabolic Lab - Testes Independentes"></li>
+                </ul>
+            </section>
+
+            <footer id="footer-main">
+
+                <div class="links">
+                    <div class="block b1">
+                        <h4>TESTOSTERONAS</h4>
+                        <ul>
+                            <li><a href="/product/50">PHARMA TEST 100</a></li>
+                            <li><a href="/product/53">PHARMA TEST 100 Oil Base</a></li>
+                            <li><a href="/product/54">PHARMA TEST P 100</a></li>
+                            <li><a href="/product/55">PHARMA TEST PH 100</a></li>
+                            <li><a href="/product/56">PHARMA TEST E 300</a></li>
+                            <li><a href="/product/57">PHARMA TEST E 500</a></li>
+                            <li><a href="/product/58">PHARMA TEST C 250</a></li>
+                            <li><a href="/product/59">PHARMA SUST 300</a></li>
+                            <li><a href="/product/60">PHARMA SUST 500</a></li>
+                            <li><a href="/product/112">PHARMATEST P50</a></li>
+                            <li><a href="/product/113">PHARMATEST U 250</a></li>
+                            <li><a href="/product/122">PHARMA TEST U 250 Ampules</a></li>
+                        </ul>
+                    </div>
+                    <div class="block b2">
+                        <h4>NANDROLONAS</h4>
+                        <ul>
+                            <li><a href="/product/13">PHARMA NAN PH 100</a></li>
+                            <li><a href="/product/61">PHARMA NAN D 300</a></li>
+                            <li><a href="/product/62">PHARMA NAN D 600</a></li>
+                            <li><a href="/product/63">PHARMA NOLT 300</a></li>
+                        </ul>
+                        <h4>TREMBOLONAS</h4>
+                        <ul>
+                            <li><a href="/product/17">PHARMA TREN A 100</a></li>
+                            <li><a href="/product/18">PHARMA TREN E 200</a></li>
+                            <li><a href="/product/20">PHARMA TREN H 100</a></li>
+                            <li><a href="/product/64">PHARMA 3-TREN 200</a></li>
+                            <li><a href="/product/109">PHARMATREN 50</a></li>
+                        </ul>
+                    </div>
+                    <div class="block b3">
+                        <h4>BOLDENONAS</h4>
+                        <ul>
+                            <li><a href="/product/15">PHARMA BOLD 300</a></li>
+                            <li><a href="/product/16">PHARMA BOLD 500</a></li>
+                        </ul>
+                        <h4>STANOZOLOL</h4>
+                        <ul>
+                            <li><a href="/product/21">PHARMA STAN 50</a></li>
+                            <li><a href="/product/46">PHARMA STAN 50 OIL BASE</a></li>
+                        </ul>
+                        <h4>MASTERONAS</h4>
+                        <ul>
+                            <li><a href="/product/23">PHARMA DRO P 100</a></li>
+                            <li><a href="/product/66">PHARMA MIX M 300</a></li>
+                            <li><a href="/product/101">PHARMA DRO E 200</a></li>
+                        </ul>
+                    </div>
+                    <div class="block b4">
+                        <h4>MIXES (LINHA ESPECIAL)</h4>
+                        <ul>
+                            <li><a href="/product/24">PHARMA MIX 1</a></li>
+                            <li><a href="/product/25">PHARMA MIX 2</a></li>
+                            <li><a href="/product/26">PHARMA MIX 3</a></li>
+                            <li><a href="/product/43">PHARMA MIX 4</a></li>
+                            <li><a href="/product/44">PHARMA MIX 5</a></li>
+                            <li><a href="/product/47">PHARMA MIX 6</a></li>
+                        </ul>
+                    </div>
+                    <div class="block b5">
+                        <h4>PRODUTOS ORAIS</h4>
+                        <ul>
+                            <li><a href="/product/31">DIANABOLOS</a></li>
+                            <li><a href="/product/32">STANOS</a></li>
+                            <li><a href="/product/33">TURINABOLOS</a></li>
+                            <li><a href="/product/34">OXANDROLONOS</a></li>
+                            <li><a href="/product/38">PROVIRONOS</a></li>
+                            <li><a href="/product/39">HALOTESTOS</a></li>
+                            <li><a href="/product/40">OXYMETOS 25</a></li>
+                            <li><a href="/product/67">SIBUTROS</a></li>
+                            <li><a href="/product/68">HENNOS</a></li>
+                            <li><a href="/product/98">TADOS</a></li>
+                            <li><a href="/product/99">TIROS</a></li>
+                            <li><a href="/product/115">DIANABOLOS 25</a></li>
+                            <li><a href="/product/116">OXANDROLONOS 25</a></li>
+                            <li><a href="/product/117">TURINABOLOS 25</a></li>
+                            <li><a href="/product/118">STANOS 25</a></li>
+                            <li><a href="/product/119">DROLOS</a></li>
+                        </ul>
+                    </div>
+                    <div class="block b6">
+                        <h4>PRIMOBOLAN</h4>
+                        <ul>
+                            <li><a href="/product/22">PHARMA PRIM 100</a></li>
+                            <li><a href="/product/65">PHARMA PRIM 200</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="cf"></div>
+                </div>
+                <div class="pre-footer">
+                    <div class="logo-footer">
+                        <img src="images/logo-gray.png" alt="Pharmacom Labs">
+                    </div>
+                    <div class="socials">
+                        <!--            <a href="#" class="twitter"></a>-->
+                        <!--            <a href="#" class="facebook"></a>-->
+                        <!--            <a href="#" class="vimeo"></a>-->
+                        <!--            <a href="#" class="youtube"></a>-->
+                    </div>
+                </div>
+
+                <hr>
+
+                <p class="copy">© Copyright Pharmacom Labs, Moldova, 2010-2025</p>
+
+                <script>
+                    (function (i, s, o, g, r, a, m) {
+                        i['GoogleAnalyticsObject'] = r;
+                        i[r] = i[r] || function () {
+                            (i[r].q = i[r].q || []).push(arguments)
+                        }, i[r].l = 1 * new Date();
+                        a = s.createElement(o),
+                            m = s.getElementsByTagName(o)[0];
+                        a.async = 1;
+                        a.src = g;
+                        m.parentNode.insertBefore(a, m)
+                    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+                    ga('create', 'UA-73331300-1', 'auto');
+                    ga('send', 'pageview');
+
+                </script>
+
+
+                <div class="bottom-light"></div>
+            </footer>
+        </div>
+
+        <!-- =============================================
+         BOTÃO WHATSAPP 
+    ============================================= -->
+        <style></style>
+</body>
+
+</html>
